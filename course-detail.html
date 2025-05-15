@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantum Computing Basics - CyberLearn</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Syne:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        orbitron: ['Orbitron', 'sans-serif'],
+                        syne: ['Syne', 'sans-serif'],
+                    },
+                    colors: {
+                        'cyber-blue': '#0ff',
+                        'cyber-pink': '#ff00ff',
+                        'cyber-yellow': '#ffff00',
+                        'dark': '#0a0a0a',
+                        'darker': '#050505',
+                    },
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darker text-white font-syne overflow-x-hidden">
+    <!-- Navbar (Same as index.html) -->
+    <nav class="fixed w-full top-0 z-50 backdrop-blur-lg border-b border-cyber-blue/10">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-orbitron font-bold bg-gradient-to-r from-cyber-blue to-cyber-pink bg-clip-text text-transparent">
+                    CyberLearn
+                </a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                    <a href="index.html#courses" class="nav-link">Courses</a>
+                    <a href="index.html#dashboard" class="nav-link">Dashboard</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-dark/50 hover:bg-dark transition-all">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Course Content -->
+    <div class="pt-24 pb-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Main Content Area -->
+                <div class="lg:col-span-2">
+                    <!-- Video Player -->
+                    <div class="glass rounded-xl overflow-hidden mb-8">
+                        <div class="aspect-w-16 aspect-h-9 bg-dark">
+                            <div class="w-full h-full flex items-center justify-center">
+                                <div class="text-center">
+                                    <div class="cyber-loader mx-auto mb-4"></div>
+                                    <p class="text-cyber-blue">Loading Video Player...</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h1 class="text-2xl font-orbitron font-bold mb-2">Quantum Computing Basics</h1>
+                            <p class="text-gray-400">Module 1: Introduction to Quantum Mechanics</p>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Module -->
+                    <div class="glass rounded-xl p-6 mb-8">
+                        <h2 class="text-xl font-orbitron font-bold mb-4">Quick Quiz</h2>
+                        <div class="space-y-4">
+                            <div class="p-4 border border-cyber-blue/30 rounded-lg hover:border-cyber-blue/60 transition-colors">
+                                <p class="mb-3">What is the fundamental unit of quantum information?</p>
+                                <div class="space-y-2">
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="q1" class="form-radio text-cyber-blue">
+                                        <span>Bit</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="q1" class="form-radio text-cyber-blue">
+                                        <span>Qubit</span>
+                                    </label>
+                                    <label class="flex items-center space-x-3 cursor-pointer">
+                                        <input type="radio" name="q1" class="form-radio text-cyber-blue">
+                                        <span>Byte</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button class="w-full py-3 bg-gradient-to-r from-cyber-blue to-cyber-pink rounded-lg font-orbitron text-lg hover:scale-105 transition-all duration-300">
+                                Submit Answer
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Syllabus Sidebar -->
+                <div class="lg:col-span-1">
+                    <div class="glass rounded-xl p-6 sticky top-24">
+                        <h2 class="text-xl font-orbitron font-bold mb-4">Course Syllabus</h2>
+                        <div class="space-y-4">
+                            <div class="border-l-2 border-cyber-blue pl-4 py-2">
+                                <h3 class="font-bold text-cyber-blue">Module 1: Introduction</h3>
+                                <p class="text-sm text-gray-400">Current Chapter</p>
+                                <div class="progress-bar mt-2" style="--progress: 60%"></div>
+                            </div>
+                            <div class="border-l-2 border-gray-700 pl-4 py-2">
+                                <h3 class="font-bold">Module 2: Quantum States</h3>
+                                <p class="text-sm text-gray-400">Coming Up Next</p>
+                            </div>
+                            <div class="border-l-2 border-gray-700 pl-4 py-2">
+                                <h3 class="font-bold">Module 3: Quantum Gates</h3>
+                                <p class="text-sm text-gray-400">Locked</p>
+                            </div>
+                            <div class="border-l-2 border-gray-700 pl-4 py-2">
+                                <h3 class="font-bold">Module 4: Algorithms</h3>
+                                <p class="text-sm text-gray-400">Locked</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/course-detail.js"></script>
+</body>
+</html> 

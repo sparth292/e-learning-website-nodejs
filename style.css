@@ -1,0 +1,233 @@
+/* Reset and Base Styles */
+:root {
+    --cyber-blue: #00ffff;
+    --cyber-glow: rgba(0, 255, 255, 0.5);
+    --dark: #000000;
+    --grid-color: rgba(0, 255, 255, 0.1);
+}
+
+body {
+    font-family: 'Orbitron', sans-serif;
+    background-color: var(--dark);
+    color: white;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Grid Background */
+.grid-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    pointer-events: none;
+    z-index: 0;
+}
+
+.grid-line {
+    border-right: 1px solid var(--grid-color);
+    height: 100vh;
+}
+
+/* Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem;
+    z-index: 100;
+    background: transparent;
+}
+
+.nav-links {
+    display: flex;
+    justify-content: flex-end;
+    gap: 3rem;
+    margin-right: 2rem;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--cyber-blue);
+}
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    padding: 0 2rem;
+}
+
+.hero-title {
+    font-size: 5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--cyber-blue);
+    text-shadow: 0 0 20px var(--cyber-glow);
+    letter-spacing: 4px;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto 3rem auto;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+}
+
+/* Buttons */
+.button {
+    padding: 1rem 2rem;
+    border: 1px solid var(--cyber-blue);
+    background: transparent;
+    color: white;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background: var(--cyber-blue);
+    color: var(--dark);
+}
+
+.button-group {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    background: transparent;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-mode-toggle:hover {
+    color: var(--cyber-blue);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+
+    .nav-links {
+        gap: 1.5rem;
+        margin-right: 1rem;
+    }
+
+    .button-group {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
+
+/* Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Glass Effect */
+.glass {
+    background: rgba(10, 10, 10, 0.7);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 255, 255, 0.1);
+}
+
+/* Progress Bar */
+.progress-bar {
+    height: 4px;
+    background: rgba(0, 255, 255, 0.1);
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: var(--progress);
+    background: linear-gradient(to right, var(--cyber-blue), var(--cyber-pink));
+    transition: width 0.3s ease;
+}
+
+/* Scroll Animations */
+.scroll-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-element.scrolled {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Neon Text Effect */
+.neon-text {
+    text-shadow: 0 0 5px var(--cyber-blue),
+                 0 0 10px var(--cyber-blue),
+                 0 0 20px var(--cyber-blue),
+                 0 0 40px var(--cyber-blue);
+}
+
+/* Hover Effects */
+.hover-glow {
+    transition: box-shadow 0.3s ease;
+}
+
+.hover-glow:hover {
+    box-shadow: 0 0 15px var(--cyber-blue);
+}
+
+/* Course Cards */
+.course-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 255, 255, 0.1);
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --dark: #050505;
+        --darker: #000000;
+    }
+} 

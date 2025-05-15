@@ -1,0 +1,59 @@
+<!-- Grid Background -->
+<div class="grid-background">
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+    <div class="grid-line"></div>
+</div>
+
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container">
+        <h1 class="hero-title">Learn in the Matrix</h1>
+        <p class="hero-subtitle">
+            Experience education reimagined for the digital age. Dive into immersive learning powered by cutting-edge technology.
+        </p>
+        <div class="button-group">
+            <button class="button">Start Learning</button>
+            <button class="button">Explore Courses</button>
+        </div>
+    </div>
+</section>
+
+<!-- Hero Animation Script -->
+<script>
+    // Animate hero elements on load
+    document.addEventListener('DOMContentLoaded', () => {
+        gsap.from('#home h1', {
+            duration: 1.5,
+            y: 100,
+            opacity: 0,
+            ease: 'power4.out'
+        });
+
+        gsap.from('#home p', {
+            duration: 1.5,
+            y: 50,
+            opacity: 0,
+            ease: 'power4.out',
+            delay: 0.5
+        });
+
+        gsap.from('#home button', {
+            duration: 1,
+            scale: 0.5,
+            opacity: 0,
+            ease: 'back.out(1.7)',
+            delay: 1,
+            stagger: 0.2
+        });
+    });
+</script> 
